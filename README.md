@@ -1,2 +1,2 @@
-# CS_434
+# CS_434_AI
 One of my subjects at college.
