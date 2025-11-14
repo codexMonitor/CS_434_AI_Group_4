@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sự Tinh Tế Tối Giản | Thời Trang</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* CSS ĐÃ GỘP VÀ ĐIỀU CHỈNH ĐƯỜNG DẪN */
+        :root {
+            --bg-color: #000000;
+            --text-color: #ffffff;
+            --accent-color: #ffd700; 
+            --light-gray: #444444;
+            --dark-box-bg: #111111; 
+            --font-primary: 'Arial', sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            font-family: var(--font-primary);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+            border-bottom: 1px solid var(--light-gray);
+        }
+
+        .logo {
+            font-size: 1.2em;
+            font-weight: bold;
+            letter-spacing: 1px;
+        }
+
+        .nav-menu a, .nav-icons a {
+            color: var(--text-color);
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 0.9em;
+            opacity: 0.8;
+            transition: opacity 0.3s;
+        }
+        .nav-icons a {
+            margin-left: 20px;
+            font-size: 1.1em;
+        }
+        a:hover {
+            opacity: 1;
+            color: var(--accent-color);
+        }
+        
+        /* --- Hero Section: ĐƯỜNG DẪN BANNER ĐÚNG --- */
+        .hero-section {
+            display: flex;
+            align-items: center;
+            padding: 80px 0;
+            background-image: linear-gradient(to right, rgba(0,0,0,0.95) 40%, rgba(0,0,0,0.7) 100%), 
+                              url('./image/banner.jpg'); 
+            background-size: cover;
+            background-position: center center; 
+            min-height: 550px; 
+            margin-bottom: 50px;
+            position: relative;
+        }
+        
+        .hero-content {
+            z-index: 2;
+            padding-left: 50px;
+        }
+
+        .hero-content h1 {
+            font-size: 3.8em; 
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .hero-content p {
+            font-size: 1.2em;
+            color: #aaa;
+        }
+
+        /* --- Category Section --- */
+        .category-grid {
+            display: flex;
+            justify-content: space-around;
+            padding: 50px 0;
+            gap: 20px;
+        }
+
+        .category-item {
+            text-align: center;
+            width: 30%;
+            transition: transform 0.3s;
+        }
+        .category-item:hover {
+            transform: translateY(-5px); 
+        }
+
+        .category-item img {
+            width: 100%;
+            aspect-ratio: 1 / 1;
+            object-fit: cover;
+            background-color: var(--dark-box-bg); 
+            box-shadow: 0 5px 20px rgba(255, 255, 255, 0.05);
+            border-radius: 5px;
+        }
+        
+        .category-item h3 {
+            margin-top: 15px;
+            font-size: 1.2em;
+            font-weight: normal;
+        }
+
+
+        /* --- Product Section --- */
+        .section-title {
+            text-align: center;
+            font-size: 2.2em;
+            margin: 50px 0 20px;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .product-grid {
+            display: flex;
+            justify-content: space-around;
+            gap: 20px;
+            padding: 20px 0 80px;
+        }
+
+        .product-card {
+            width: 30%;
+            text-align: center;
+            padding: 10px;
+            background-color: var(--dark-box-bg);
+            border-radius: 3px;
+            transition: box-shadow 0.3s, transform 0.3s;
+        }
+        .product-card:hover {
+            box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+            transform: translateY(-5px);
+        }
+
+        .product-card img {
+            width: 100%;
+            aspect-ratio: 1 / 1.2;
+            object-fit: cover;
+            background-color: #1a1a1a;
+            border-radius: 3px;
+        }
+
+        .product-info {
+            padding: 10px 0;
+        }
+
+        .product-info h4 {
+            margin: 5px 0;
+            font-weight: normal;
+        }
+
+        .price {
+            font-weight: bold;
+            font-size: 1.1em;
+            color: var(--accent-color); 
+        }
+
+        .rating .fas {
+            color: var(--accent-color);
+            font-size: 0.8em;
+        }
+        .small-text {
+            font-size: 0.8em;
+            color: #888;
+        }
+
+        /* --- Style Showcase Section --- */
+        .style-showcase {
+            background-color: var(--dark-box-bg);
+            padding: 40px;
+            border-radius: 5px;
+            margin-bottom: 80px;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .style-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .style-item {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .style-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            filter: brightness(0.7); 
+            transition: filter 0.3s;
+        }
+        .style-item:hover img {
+            filter: brightness(1.0); 
+        }
+
+
+        .style-item h4 {
+            position: absolute;
+            bottom: 15px; 
+            left: 15px;
+            background-color: rgba(0, 0, 0, 0.4);
+            padding: 5px 10px;
+            margin: 0;
+            font-weight: bold; 
+            font-size: 1.3em;
+            z-index: 10;
+            color: var(--text-color);
+        }
+
+        /* --- Testimonials Section --- */
+        .testimonial-slider {
+            display: flex;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding: 20px 0;
+            gap: 20px;
+            -webkit-overflow-scrolling: touch;
+            margin-bottom: 40px;
+        }
+        
+        .testimonial-card {
+            min-width: 300px;
+            background-color: var(--dark-box-bg);
+            padding: 20px;
+            border-radius: 3px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.05);
+            flex-shrink: 0;
+            scroll-snap-align: start;
+        }
+
+        .testimonial-card h4 {
+            margin-top: 5px;
+            margin-bottom: 5px;
+            color: var(--accent-color);
+        }
+        .testimonial-card p {
+            color: #ccc;
+            font-style: italic;
+        }
+
+        /* Responsive cơ bản */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2.5em; }
+            .hero-section { background-image: none !important; min-height: 300px; }
+            .hero-content { padding-left: 20px; }
+            .category-grid, .product-grid { flex-direction: column; }
+            .category-item, .product-card { width: 100%; margin-bottom: 20px; }
+            .style-grid { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header container">
+        <div class="logo">LEHOANGVO</div>
+        <nav class="nav-menu">
+            <a href="#">Trang chủ</a>
+            <a href="#">Sản phẩm</a>
+            <a href="#">Bộ sưu tập</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+        <div class="nav-icons">
+            <a href="#"><i class="fas fa-search"></i></a>
+            <a href="#"><i class="fas fa-shopping-cart"></i></a>
+        </div>
+    </header>
+
+    <section class="hero-section">
+        <div class="hero-images-mock"></div>
+        <div class="hero-content">
+            <h1>Sự Tinh Tế Tối Giản</h1>
+            <p>Khám phá phong cách của riêng bạn</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <section class="category-grid">
+            <div class="category-item">
+                <img src="./image/danh_muc_ao.jpg" alt="Áo"> 
+                <h3>Áo</h3>
+            </div>
+            <div class="category-item">
+                <img src="./image/quan_jean.png" alt="Quần"> 
+                <h3>Quần</h3>
+            </div>
+            <div class="category-item">
+                <img src="./image/danh_muc_phu_kien.jpg" alt="Phụ kiện"> 
+                <h3>Phụ Kiện</h3>
+            </div>
+        </section>
+
+        <h2 class="section-title">Sản Phẩm Mới Nhất</h2>
+
+        <section class="product-grid">
+            <div class="product-card">
+                <img src="./image/quan_kaki.jpg" alt="Quần Kaki Bảnh"> 
+                <div class="product-info">
+                    <h4>Quần Kaki Bảnh</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <p class="price">319k <span class="small-text">(Đã bán 4.8k)</span></p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./image/ao_thun.jpg" alt="Áo Thun"> 
+                <div class="product-info">
+                    <h4>Áo Thun</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="price">299k <span class="small-text">(Đã bán 5.2k)</span></p>
+                </div>
+            </div>
+
+            <div class="product-card">
+                <img src="./image/ao_bong_ro.jpg" alt="Áo Bóng Rổ"> 
+                <div class="product-info">
+                    <h4>Áo Bóng Rổ</h4>
+                    <div class="rating">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
+                    </div>
+                    <p class="price">499k <span class="small-text">(Đã bán 3.1k)</span></p>
+                </div>
+            </div>
+        </section>
+
+        <section class="style-showcase">
+            <h2 class="section-title" style="margin-top: 0;">Phong Cách Thời Trang Mới</h2>
+            <div class="style-grid">
+                <div class="style-item">
+                    <img src="./image/quan_kaki.jpg" alt="Đơn Giản"> 
+                    <h4>Đơn Giản</h4>
+                </div>
+                <div class="style-item">
+                    <img src="./image/ao_thun.jpg" alt="Phong Cách"> 
+                    <h4>Phong Cách</h4>
+                </div>
+                <div class="style-item">
+                    <img src="./image/ao_bong_ro.jpg" alt="Tiệc"> 
+                    <h4>Tiệc</h4>
+                </div>
+                <div class="style-item">
+                    <img src="./image/danh_muc_ao.jpg" alt="Gym"> 
+                    <h4>Gym</h4>
+                </div>
+            </div>
+        </section>
+
+        <h2 class="section-title">Đánh Giá Từ Khách Hàng</h2>
+        <section class="testimonial-slider">
+            <div class="testimonial-card">
+                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <h4>Sarah M.</h4>
+                <p>"Tôi rất hài lòng về chất lượng và mẫu mã của sản phẩm. Chúng vừa vặn và thoải mái. Chắc chắn tôi sẽ mua hàng của LEHOANGVO nữa!"</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i></div>
+                <h4>Alex H.</h4>
+                <p>"Thời trang tối giản nhưng đầy cá tính. Mặc đi làm hay đi chơi đều hợp. Giá cả phải chăng, rất recommend cho mọi người."</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="rating"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+                <h4>James L.</h4>
+                <p>"Tôi đã tìm thấy phong cách phù hợp với mình. Hàng giao nhanh, đóng gói cẩn thận. Cảm ơn shop."</p>
+            </div>
+        </section>
+        
+    </div>
+
+    <footer style="text-align: center; padding: 20px; color: var(--light-gray); font-size: 0.9em; border-top: 1px solid var(--light-gray); margin-top: 50px;">
+        &copy; 2025 LEVHOANGVO. All Rights Reserved.
+    </footer>
+
+</body>
+</html>
