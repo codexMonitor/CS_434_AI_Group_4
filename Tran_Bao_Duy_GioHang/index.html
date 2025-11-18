@@ -1,38 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Simple Cart</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <div class="container">
+        <header>
+            <h1>Fashion Store</h1>
+            <button class="cart-toggle" onclick="toggleCart()">
+                🛒 Cart (<span id="cart-count">0</span>)
+            </button>
+        </header>
 
-<div class="box">
-    <h2>Your Cart</h2>
+        <div class="main-content">
+            <div class="products-section">
+                <h2>Products</h2>
+                <div class="products-grid" id="products-grid"></div>
+            </div>
 
-    <p><b>Item:</b> T-Shirt</p>
-    <p><b>Price:</b> $20</p>
-    <p><b>Quantity:</b> 1</p>
+            <div class="cart-sidebar" id="cart-sidebar">
+                <div class="cart-header">
+                    <h2>Your Cart</h2>
+                    <span class="cart-count">(<span id="cart-items-count">0</span>) ITEM(S)</span>
+                </div>
 
-    <button id="buyBtn">Purchase</button>
-</div>
+                <div class="cart-items" id="cart-items">
+                    <div class="empty-cart">Your cart is empty</div>
+                </div>
 
-<script>
-document.getElementById("buyBtn").addEventListener("click", async () => {
-    const res = await fetch("http://localhost:4000/checkout", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-            item: "T-Shirt",
-            price: 20,
-            qty: 1
-        })
-    });
+                <div class="cart-summary">
+                    <div class="subtotal">
+                        <span>Item Subtotal</span>
+                        <span id="subtotal">$0</span>
+                    </div>
+                    <div class="total">
+                        <span>TOTAL</span>
+                        <span id="total">$0</span>
+                    </div>
+                    <button class="purchase-btn" onclick="purchase()">Purchase</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
-    const data = await res.json();
-    alert(data.message);
-});
-</script>
-
+    <script src="script.js"></script>
 </body>
 </html>
