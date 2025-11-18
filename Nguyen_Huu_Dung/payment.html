@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang Thanh Toán</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h2>Thanh Toán Đơn Hàng</h2>
+
+    <!-- Thông tin khách hàng -->
+    <div class="section">
+        <h3>Thông tin giao hàng</h3>
+        <label>Họ và tên</label>
+        <input type="text" placeholder="Nguyễn Văn A">
+
+        <label>Số điện thoại</label>
+        <input type="text" placeholder="0123 456 789">
+
+        <label>Địa chỉ</label>
+        <input type="text" placeholder="Số nhà, đường, phường/xã">
+
+        <label>Tỉnh / Thành phố</label>
+        <input type="text" placeholder="Hà Nội, Hồ Chí Minh,...">
+    </div>
+
+    <!-- Phương thức thanh toán -->
+    <div class="section">
+        <h3>Phương thức thanh toán</h3>
+
+        <label class="radio">
+            <input type="radio" name="payment" checked>
+            <span>Thanh toán khi nhận hàng (COD)</span>
+        </label>
+
+        <label class="radio">
+            <input type="radio" name="payment">
+            <span>Chuyển khoản ngân hàng</span>
+        </label>
+
+        <label class="radio">
+            <input type="radio" name="payment">
+            <span>Thanh toán bằng thẻ (Visa/Mastercard)</span>
+        </label>
+    </div>
+
+    <!-- Tóm tắt đơn hàng -->
+    <div class="section">
+        <h3>Tóm tắt đơn hàng</h3>
+        <div class="summary">
+            <p>Sản phẩm A <span>35$</span></p>
+            <hr>
+            <p class="total">Tổng cộng <span>35$</span></p>
+        </div>
+    </div>
+
+    <!-- Nút thanh toán -->
+    <button class="btn">Xác nhận thanh toán</button>
+</div>
+
+</body>
+</html>
