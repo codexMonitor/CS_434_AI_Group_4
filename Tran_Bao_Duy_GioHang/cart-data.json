@@ -1,0 +1,18 @@
+{
+  "items": [
+    {
+      "id": "p1",
+      "sku": "JEANS-BLK-XL",
+      "title": "Faded Skinny Jeans (Black)",
+      "description": "Brief description",
+      "size": "XL",
+      "price": 35,
+      "qty": 1,
+      "image": "https://i.imgur.com/lYVZx4w.jpeg"
+    }
+  ],
+  "currency": "$",
+  "lastUpdated": "2025-11-18T02:43:28.340Z",
+  "subtotal": 35,
+  "total": 35
+}
