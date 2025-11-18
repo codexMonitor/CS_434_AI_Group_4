@@ -1,136 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Cart</title>
+    <title>Simple Cart</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
-<div class="cart-box">
+<div class="box">
+    <h2>Your Cart</h2>
 
-    <!-- Header -->
-    <div class="cart-header">
-        <span class="close-icon">✕</span>
-        <h2>Your Cart</h2>
-        <span class="items" id="item-count">(0) ITEM(S)</span>
-    </div>
+    <p><b>Item:</b> T-Shirt</p>
+    <p><b>Price:</b> $20</p>
+    <p><b>Quantity:</b> 1</p>
 
-    <hr>
-
-    <!-- Dynamic product container -->
-    <div id="product-container"></div>
-
-    <hr>
-
-    <!-- Subtotal -->
-    <div class="subtotal-row">
-        <span>Item Subtotal</span>
-        <span id="subtotal">$0</span>
-    </div>
-
-    <hr>
-
-    <!-- Total -->
-    <div class="total-row">
-        <h3>TOTAL</h3>
-        <h3 id="total">$0</h3>
-    </div>
-
-    <!-- Button -->
-    <div class="purchase-wrap">
-        <button class="purchase-btn" id="checkout-btn">Purchase</button>
-    </div>
-
+    <button id="buyBtn">Purchase</button>
 </div>
 
-
-<!-- ================================ -->
-<!--       FRONTEND - BACKEND JS      -->
-<!-- ================================ -->
 <script>
-const API_BASE = "http://localhost:4000";
+document.getElementById("buyBtn").addEventListener("click", async () => {
+    const res = await fetch("http://localhost:4000/checkout", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+            item: "T-Shirt",
+            price: 20,
+            qty: 1
+        })
+    });
 
-// Load cart from backend on page load
-async function loadCart() {
-    const res = await fetch(`${API_BASE}/cart`);
     const data = await res.json();
-    const cart = data.cart;
-
-    // Update header count
-    document.getElementById("item-count").innerText =
-        `(${cart.items.length}) ITEM(S)`;
-
-    const container = document.getElementById("product-container");
-    container.innerHTML = ""; // clear old items
-
-    // If no items
-    if (cart.items.length === 0) {
-        container.innerHTML = "<p>Your cart is empty.</p>";
-    }
-
-    // Build product item rows
-    cart.items.forEach(item => {
-        const row = document.createElement("div");
-        row.className = "product-row";
-        row.innerHTML = `
-            <img src="${item.image}" class="product-img">
-
-            <div class="product-info">
-                <div class="title-row">
-                    <h3>${item.title}</h3>
-                    <span class="remove-product" data-id="${item.id}">✕</span>
-                </div>
-
-                <p class="desc"><b>${item.description}</b></p>
-
-                <p><b>Size:</b> ${item.size}</p>
-                <p><b>Price:</b> ${item.price}$</p>
-
-                <div class="quantity-row">
-                    <span class="qty-num">${item.qty}</span>
-                </div>
-            </div>
-        `;
-        container.appendChild(row);
-    });
-
-    // Update totals
-    document.getElementById("subtotal").innerText = cart.subtotal + "$";
-    document.getElementById("total").innerText = cart.total + "$";
-
-    // Add remove button logic
-    document.querySelectorAll(".remove-product").forEach(btn => {
-        btn.addEventListener("click", removeItem);
-    });
-}
-
-
-// Remove item
-async function removeItem(event) {
-    const id = event.target.getAttribute("data-id");
-    await fetch(`${API_BASE}/cart/items/${id}`, {
-        method: "DELETE"
-    });
-    loadCart(); // refresh UI
-}
-
-
-// Checkout
-document.getElementById("checkout-btn").addEventListener("click", async () => {
-    const res = await fetch(`${API_BASE}/checkout`, {
-        method: "POST"
-    });
-    const data = await res.json();
-
     alert(data.message);
-    loadCart(); // clear cart in UI
 });
-
-
-// Load cart on startup
-loadCart();
 </script>
 
 </body>

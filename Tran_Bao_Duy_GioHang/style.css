@@ -1,92 +1,28 @@
 body {
-    background: #1f1f1f;
-    display: flex;
-    justify-content: center;
-    padding: 40px;
-    font-family: "Times New Roman", serif;
+    font-family: Arial;
+    background: #f2f2f2;
 }
 
-.cart-box {
+.box {
+    width: 300px;
+    padding: 20px;
+    margin: 50px auto;
     background: white;
-    width: 500px;
-    padding: 25px 35px;
-    border-radius: 4px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
 }
 
-.cart-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    font-size: 20px;
-}
-
-.close-icon,
-.remove-product {
-    font-size: 22px;
-    cursor: pointer;
-}
-
-.items {
-    font-size: 18px;
-}
-
-.product-row {
-    display: flex;
-    gap: 15px;
-    padding: 20px 0;
-}
-
-.product-img {
-    width: 110px;
-    border-radius: 4px;
-}
-
-.product-info {
+button {
     width: 100%;
-}
-
-.title-row {
-    display: flex;
-    justify-content: space-between;
-}
-
-.desc {
-    margin: 6px 0;
-}
-
-.quantity-row {
-    margin-top: 10px;
-    text-align: right;
-    border-top: 1px solid black;
-    width: 50px;
-    margin-left: auto;
-}
-
-.qty-num {
-    display: inline-block;
-    margin-top: 4px;
-    font-size: 18px;
-}
-
-.subtotal-row,
-.total-row {
-    display: flex;
-    justify-content: space-between;
-    padding: 18px 0;
-    font-size: 18px;
-}
-
-.purchase-wrap {
-    text-align: right;
-    margin-top: 10px;
-}
-
-.purchase-btn {
-    background: #222;
-    color: white;
-    padding: 10px 22px;
+    padding: 10px;
     border: none;
-    border-radius: 6px;
+    background: black;
+    color: white;
     font-size: 16px;
+    border-radius: 6px;
     cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.8;
 }
