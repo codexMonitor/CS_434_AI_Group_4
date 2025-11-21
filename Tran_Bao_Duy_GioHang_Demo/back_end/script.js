@@ -208,3 +208,5 @@ document.addEventListener('DOMContentLoaded', function() {
     renderProducts();
     renderCart();
 });
+
+// Add some comments to test
