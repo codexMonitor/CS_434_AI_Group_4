@@ -1,0 +1,52 @@
+﻿\<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Login.master.cs" Inherits="DOAN_TMDT.Login" %>
+
+<!DOCTYPE html>
+<html lang="en">
+<head runat="server">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Luxury Fashion</title>
+    <link href="https://cdn.lineicons.com/4.0/lineicons.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/aspx(Main).css" />
+    <asp:ContentPlaceHolder ID="head" runat="server" />
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div class="container" id="container">
+            <div class="form-container register-container">
+                <asp:ContentPlaceHolder ID="RegisterContent" runat="server" />
+            </div>
+
+            <div class="form-container login-container">
+                <asp:ContentPlaceHolder ID="LoginContent" runat="server" />
+            </div>
+
+            <div class="overlay-container">
+                <div class="overlay">
+                    <div class="overlay-panel overlay-left">
+                        <h1 class="title">Hello <br /> friends</h1>
+                         <p style="text-align: left; width: 100%;">If you have an account, login here and enjoy</p>
+                        <button type="button" class="ghost" id="login">
+                            Login
+                            <i class="lni lni-arrow-left login"></i>
+                        </button>
+                    </div>
+                    <div class="overlay-panel overlay-right">
+                        <h1 class="title">Your Style <br /> Starts Here</h1>
+                        <p>If you don't have an account yet, join us and start your journey.</p>
+                        <button type="button" class="ghost" id="register">
+                            Register
+                            <i class="lni lni-arrow-right register"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+       <script src="js\checkregister.js"></script>
+       <script src="js\LoginRegister.js"></script>
+       <script src="js\Forgotpassword.js"></script>
+       
+    </form>
+</body>
+</html>
