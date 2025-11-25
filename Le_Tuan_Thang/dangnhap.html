@@ -196,51 +196,60 @@
 
     <script>
         // Hàm xử lý đăng nhập
-        function handleLogin(event) {
-            event.preventDefault();
-            
-            const username = document.getElementById('username').value.trim();
-            const password = document.getElementById('password').value.trim();
-            const usernameError = document.getElementById('usernameError');
-            const passwordError = document.getElementById('passwordError');
-            const successMessage = document.getElementById('successMessage');
-            
-            // Reset error messages
-            usernameError.style.display = 'none';
-            passwordError.style.display = 'none';
-            successMessage.style.display = 'none';
-            
-            let isValid = true;
-            
-            // Validate username
-            if (username === '') {
-                usernameError.style.display = 'block';
-                isValid = false;
-            }
-            
-            // Validate password
-            if (password === '') {
-                passwordError.style.display = 'block';
-                isValid = false;
-            }
-            
-            // Nếu hợp lệ, xử lý đăng nhập
-            if (isValid) {
-                successMessage.style.display = 'block';
-                
-                // Gửi dữ liệu đến server (ví dụ)
-                console.log('Username:', username);
-                console.log('Password:', password);
-                
-                // Redirect sau 1.5 giây
-                setTimeout(() => {
-                    // window.location.href = 'dashboard.html';
-                    alert('Đăng nhập thành công! Chuyển hướng đến trang chủ...');
-                }, 1500);
-            }
-            
-            return false;
+       function handleLogin(event) {
+    event.preventDefault();
+    
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value.trim();
+    const usernameError = document.getElementById('usernameError');
+    const passwordError = document.getElementById('passwordError');
+    const successMessage = document.getElementById('successMessage');
+
+    // Reset lỗi
+    usernameError.style.display = 'none';
+    passwordError.style.display = 'none';
+    successMessage.style.display = 'none';
+
+    let isValid = true;
+
+    if (username === '') {
+        usernameError.style.display = 'block';
+        isValid = false;
+    }
+    if (password === '') {
+        passwordError.style.display = 'block';
+        isValid = false;
+    }
+
+    if (!isValid) return false;
+
+    // Gửi request đến backend
+    fetch("http://localhost:3000/login", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ username, password })
+    })
+    .then(res => res.json())
+    .then(data => {
+        if (data.success) {
+            successMessage.style.display = 'block';
+
+            setTimeout(() => {
+                alert("Đăng nhập thành công! Chuyển hướng...");
+                window.location.href = "homepage.html";
+            }, 1200);
+        } else {
+            alert("Sai tên đăng nhập hoặc mật khẩu!");
         }
+    })
+    .catch(err => {
+        console.error("Lỗi backend:", err);
+        alert("Không kết nối được server!");
+    });
+
+    return false;
+}
+
         
         // Hàm xử lý quên mật khẩu
         function handleForgotPassword() {
