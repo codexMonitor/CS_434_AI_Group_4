@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Fashion Store</h1>
+            <button class="cart-toggle" onclick="toggleCart()">
+                🛒 Cart (<span id="cart-count">0</span>)
+            </button>
+        </header>
+
+        <div class="main-content">
+            <div class="products-section">
+                <h2>Products</h2>
+                <div class="products-grid" id="products-grid"></div>
+            </div>
+
+            <div class="cart-sidebar" id="cart-sidebar">
+                <div class="cart-header">
+                    <h2>Your Cart</h2>
+                    <span class="cart-count">(<span id="cart-items-count">0</span>) ITEM(S)</span>
+                </div>
+
+                <div class="cart-items" id="cart-items">
+                    <div class="empty-cart">Your cart is empty</div>
+                </div>
+
+                <div class="cart-summary">
+                    <div class="subtotal">
+                        <span>Item Subtotal</span>
+                        <span id="subtotal">$0</span>
+                    </div>
+                    <div class="total">
+                        <span>TOTAL</span>
+                        <span id="total">$0</span>
+                    </div>
+                    <button class="purchase-btn" onclick="purchase()">Purchase</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../back_end/script.js"></script>
+</body>
+</html>
