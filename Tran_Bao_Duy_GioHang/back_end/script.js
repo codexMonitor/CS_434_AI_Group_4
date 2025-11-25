@@ -210,4 +210,4 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 // Add some comments to test
-// Some more comments
+// Some more comments.
