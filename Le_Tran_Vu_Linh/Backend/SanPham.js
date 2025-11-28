@@ -82,15 +82,10 @@ function initializeQuantity() {
 
 // Xử lý nút giỏ hàng
 function initializeCartButtons() {
-    const addToCartBtn = document.querySelector('.buy-button');
-    const buyNowBtn = document.querySelector('.addcart-button');
+    const addToCartBtn = document.querySelector('.addcart-button');
     
     if (addToCartBtn) {
         addToCartBtn.addEventListener('click', addToCart);
-    }
-    
-    if (buyNowBtn) {
-        buyNowBtn.addEventListener('click', addToCart);
     }
 }
 
