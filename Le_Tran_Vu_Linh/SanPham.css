@@ -126,7 +126,7 @@ header{
     font-weight: 900;
     margin-bottom: 30px;
 }
-
+/* màu sắc */
 .color-options {
     display: flex;
     align-items: center;
@@ -170,7 +170,6 @@ header{
 .size-options button:hover{
     scale: 1.2 ;
 }
-
 .quantity{
     margin-bottom: 30px;
 }
@@ -231,7 +230,6 @@ header{
     justify-content: center;
     align-items: center;
     gap: 20px;
-
     border: 2px solid #ccc;
     padding: 30px 20px;
 
