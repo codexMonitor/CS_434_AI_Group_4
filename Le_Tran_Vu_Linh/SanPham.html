@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -9,11 +10,11 @@
     <link rel="stylesheet" href="./ass"> 
     -->
     <link rel="stylesheet" href="SanPham.css">
-    <script src="SanPham.js"></script>
 </head>
+
 <body>
     <!-- header -->
-     <script src="SanPham.js"></script>
+    <script src="Backend/SanPham.js"></script>
     <header>
         <div class="logo">
             <a href=""><img src="img/logo.png" alt=""></a>
@@ -33,7 +34,7 @@
                 <img src="img/search.png" alt="">
             </button>
         </div>
-        
+
         <div class="user">
             <a href="#"><img src="img/user.png" alt=""></a>
         </div>
@@ -51,86 +52,91 @@
 
 
 
-<!-- product -->
- <div class="product">
+    <!-- product -->
+    <div class="product">
 
- 
-    <div class="top-product">
-        <div class="product-image">
+
+        <div class="top-product">
+            <div class="product-image">
                 <img src="img/item.jpg" alt="">
-            <div class="list-product">
-                <img src="img/item.jpg" alt="">
-                <img src="img/item.jpg" alt="">
-                <img src="img/item.jpg" alt="">
+                <div class="list-product">
+                    <img src="img/item.jpg" alt="">
+                    <img src="img/item.jpg" alt="">
+                    <img src="img/item.jpg" alt="">
+                </div>
+            </div>
+            <div class="detail-product">
+                <div class="name-product">Áo khoác thời trang Nam/Nữ</div>
+                <div class="rating">
+                    <span>MSP: 58M9196</span>
+                    <span>★★★★★</span>
+                    <span>(0 đánh giá)</span>
+                </div>
+                <div class="price">Giá bán: 999.000₫</div>
+                <div class="color-options">
+                    <label>Màu sắc: </label>
+                    <span style="background-color: black;"></span>
+                    <span style="background-color: white;"></span>
+                    <span style="background-color: blue;"></span>
+                    <span style="background-color: red;"></span>
+                </div>
+                <div class="size-options">
+                    <label>Size: </label>
+                    <button>S</button>
+                    <button>M</button>
+                    <button>L</button>
+                    <button>XL</button>
+                </div>
+                <div class="detail-product" data-product-id="58M9196">
+
+                    <div class="quantity">
+                        <label>Số lượng: </label>
+                        <input type="number" id="quantity-input" value="1" min="1">
+                    </div>
+
+                </div>
+                <div class="button">
+                    <button class="addcart-button">Thêm vào giỏ hàng</button>
+                    <button class="buy-button">Mua ngay</button>
+                </div>
             </div>
         </div>
-        <div class="detail-product">
-            <div class="name-product">Áo khoác thời  trang Nam/Nữ</div>
-            <div class="rating">
-                <span>MSP: 58M9196</span>
-                <span>★★★★★</span>
-                <span>(0 đánh giá)</span>
-            </div>
-            <div class="price">Giá bán: 999.000₫</div>
-            <div class="color-options">
-                <label>Màu sắc: </label>
-                <span style="background-color: black;"></span>
-                <span style="background-color: white;"></span>
-                <span style="background-color: blue;"></span>
-                <span style="background-color: red;"></span>
-            </div>
-            <div class="size-options">
-                <label>Size: </label>
-                <button>S</button>
-                <button>M</button>
-                <button>L</button>
-                <button>XL</button>
-            </div>
-            <div class="quantity">
-                <label>Số lượng: </label>
-                <input type="number" value="1" min="1">
-            </div>
-            <div class="button">
-                <button class="buy-button">Thêm vào giỏ hàng</button>
-                <button class="addcart-button">Mua ngay</button>
+        <div class="infor-product">
+            <img src="img/infor1.png" alt="">
+            <img src="img/infor2.png" alt="">
+            <img src="img/infor3.png" alt="">
+
+        </div>
+        <div class="recommend-product">
+            <label style="font-size: 30px; padding-top: 20px;">Gơi ý một số sản phẩm:</label>
+            <div class="suggest-items">
+                <div class="item">
+                    <img src="img/item.jpg" alt="">
+                    <p>Áo Thun Nam</p>
+                    <span>150.000đ</span>
+                </div>
+
+                <div class="item">
+                    <img src="img/item.jpg" alt="">
+                    <p>Quần Short</p>
+                    <span>180.000đ</span>
+                </div>
+
+                <div class="item">
+                    <img src="img/item.jpg" alt="">
+                    <p>Giày Sneaker</p>
+                    <span>550.000đ</span>
+                </div>
             </div>
         </div>
-    </div>
-    <div class="infor-product">
-        <img src="img/infor1.png" alt="">
-        <img src="img/infor2.png" alt="">
-        <img src="img/infor3.png" alt="">
 
     </div>
-    <div class="recommend-product">
-        <label style="font-size: 30px; padding-top: 20px;" >Gơi ý một số sản phẩm:</label>
-        <div class="suggest-items">
-        <div class="item">
-            <img src="img/item.jpg" alt="">
-            <p>Áo Thun Nam</p>
-            <span>150.000đ</span>
-        </div>
 
-        <div class="item">
-            <img src="img/item.jpg" alt="">
-            <p>Quần Short</p>
-            <span>180.000đ</span>
-        </div>
-
-        <div class="item">
-            <img src="img/item.jpg" alt="">
-            <p>Giày Sneaker</p>
-            <span>550.000đ</span>
-        </div>
-    </div>
-    </div>
-
-</div>
-
-<!-- footer -->
+    <!-- footer -->
     <footer>
         footer
 
     </footer>
 </body>
+
 </html>
